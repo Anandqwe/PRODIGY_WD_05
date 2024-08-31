@@ -1,4 +1,4 @@
-const apiKey = '2af7cc6393ce026b840f3bdde502dbc4'; // Replace with your OpenWeatherMap API key
+const apiKey = 'Open Weather API KEY'; 
 
 async function getWeather() {
     const location = document.getElementById('locationInput').value;
@@ -6,7 +6,6 @@ async function getWeather() {
     weatherDiv.innerHTML = 'Loading...';
 
     try {
-        // Fetch coordinates from the location input
         const geoResponse = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
         const geoData = await geoResponse.json();
 
@@ -17,7 +16,6 @@ async function getWeather() {
 
         const { lat, lon } = geoData[0];
 
-        // Fetch weather data using the coordinates
         const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         const weatherData = await weatherResponse.json();
 
